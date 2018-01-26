@@ -6,7 +6,7 @@
 #    By: aabelque <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/22 12:03:18 by aabelque          #+#    #+#              #
-#    Updated: 2017/12/04 15:03:15 by aabelque         ###   ########.fr        #
+#    Updated: 2018/01/26 20:09:37 by aabelque         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,26 +28,36 @@ SRC = ft_atoi.c ft_bzero.c ft_factorial.c ft_isalnum.c ft_isalpha.c \
 	  ft_strlcat.c ft_strlen.c ft_strmap.c ft_strmapi.c ft_strncat.c \
 	  ft_strncmp.c ft_strncpy.c ft_strnequ.c ft_strnew.c ft_strnstr.c \
 	  ft_strrchr.c ft_strsplit.c ft_strstr.c ft_strsub.c ft_strtrim.c \
-	  ft_swap.c ft_tolower.c ft_toupper.c
+	  ft_swap.c ft_tolower.c ft_toupper.c get_msg.c ft_add_list.c \
+	  ft_add_endlist.c ft_nb_elemlist.c ft_printlist.c ft_pushback_list.c \
+	  ft_rm_endlist.c ft_rm_frontlist.c ft_rmlist.c
 
-HEADERS = libft.h
+HEADERS = -Ilibft.h
 
-OBJS = $(SRC:.c=.o)
+OBJ = $(SRC:%.c=%.o)
 
-all: $(NAME)
+all:  print $(NAME)
 
-$(NAME): $(OBJS)
-	@$(CC) -c $(CFLAGS) $(SRC) $(HEADERS)
-	@ar rc $(NAME) $(OBJS) $^
+print:
+	@echo "\033[32m[\c"
+
+$(NAME): $(OBJ)
+	@ar rc $(NAME) $(OBJ)
 	@ranlib $(NAME)
+	@echo "\033[32m Built library]\033[0m"
 
 %.o: %.c
-	$(CC) -o $@ -c $< $(CFLAGS)
+	@$(CC) $(CFLAGS) $(HEADERS) -o $@ -c $<
+	@echo "\033[33m>\c"
 
 clean:
-	/bin/rm -f *.o 
+	@/bin/rm -f $(OBJ)
+	@echo "\033[32mCleaned up object files.\033[0m"
 
 fclean: clean
-	/bin/rm -f $(NAME)
+	@/bin/rm -f $(NAME)
+	@echo "\033[32mCleaned up compiled files.\033[0m"
 
 re: fclean all
+
+.PHONY: all clean fclean re

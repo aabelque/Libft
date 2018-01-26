@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_nb_elemlist.c                                   :+:      :+:    :+:   */
+/*   ft_pushback_list.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aabelque <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/16 15:21:43 by aabelque          #+#    #+#             */
-/*   Updated: 2018/01/17 16:49:53 by aabelque         ###   ########.fr       */
+/*   Created: 2018/01/17 16:07:36 by aabelque          #+#    #+#             */
+/*   Updated: 2018/01/17 16:50:09 by aabelque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_nb_elemlist(t_list *list)
+void		ft_pushback_list(t_list **alst, t_list *new)
 {
-	int	size;
+	t_list	*tmp;
 
-	size = 0;
-	if (list->next == NULL)
-		return (0);
-	while (list)
+	tmp = *alst;
+	if (*alst == NULL)
+		*alst = new;
+	else
 	{
-		size++;
-		list = list->next;
+		while (tmp->next)
+			tmp = tmp->next;
+		tmp->next = new;
 	}
-	return (size);
 }

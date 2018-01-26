@@ -6,7 +6,7 @@
 /*   By: aabelque <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/15 12:54:05 by aabelque          #+#    #+#             */
-/*   Updated: 2017/12/02 20:18:38 by aabelque         ###   ########.fr       */
+/*   Updated: 2018/01/20 14:07:28 by aabelque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,21 @@
 
 typedef struct		s_list
 {
+	char			*str;
 	void			*content;
 	size_t			content_size;
 	struct s_list	*next;
 }					t_list;
 
+void				ft_pushback_list(t_list **alst, t_list *new);
+void				ft_add_endlist(t_list **list, char *str);
+void				ft_add_list(t_list **list, char *str);
+int					ft_nb_elemlist(t_list *list);
+void				ft_printlist(t_list *list);
+void				ft_rm_endlist(t_list **list);
+void				ft_rm_frontlist(t_list **list);
+void				ft_rmlist(t_list **list);
+void				get_msg(char *str);
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 void				ft_lstdel(t_list **alst, void (*del)(void *, size_t));
 void				ft_lstdelone(t_list **alst, void (*del)(void *, size_t));
