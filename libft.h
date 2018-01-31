@@ -6,7 +6,7 @@
 /*   By: aabelque <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/15 12:54:05 by aabelque          #+#    #+#             */
-/*   Updated: 2018/01/20 14:07:28 by aabelque         ###   ########.fr       */
+/*   Updated: 2018/01/31 13:49:07 by aabelque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <unistd.h>
 # include <string.h>
 # include <stdlib.h>
+# include <wchar.h>
 
 typedef struct		s_list
 {
@@ -25,6 +26,7 @@ typedef struct		s_list
 	struct s_list	*next;
 }					t_list;
 
+void				ft_putwchar(wchar_t c);
 void				ft_pushback_list(t_list **alst, t_list *new);
 void				ft_add_endlist(t_list **list, char *str);
 void				ft_add_list(t_list **list, char *str);
