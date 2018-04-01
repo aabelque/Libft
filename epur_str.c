@@ -1,29 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   epur_str.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aabelque <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/27 12:36:06 by aabelque          #+#    #+#             */
-/*   Updated: 2018/01/21 16:39:07 by aabelque         ###   ########.fr       */
+/*   Created: 2018/03/30 11:34:58 by aabelque          #+#    #+#             */
+/*   Updated: 2018/04/01 18:18:45 by aabelque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+void	epur_str(char *str)
 {
-	char *str;
+	int i;
 
-	if (!s1 && !s2)
-		return (NULL);
-	if (!(str = ft_strnew(ft_strlen(s1) + ft_strlen(s2) + 1)))
-		return (NULL);
-	if (str != '\0')
+	i = 0;
+	while (str[i])
 	{
-		ft_strcpy(str, s1);
-		ft_strcat(str, s2);
+		if (str[i] == ' ' || str[i] == '\t')
+		{
+			while (str[i] && str[i + 1] && (str[i + 1] == ' ' ||
+						str[i + 1] == '\t'))
+				i++;
+			if (!str[i + 1])
+				break ;
+			ft_putchar(' ');
+		}
+		else if (str[i])
+			ft_putchar(str[i]);
+		i++;
 	}
-	return (str);
+	ft_putchar('\n');
+}
+
+int		main(int argc, char **argv)
+{
+	if (argc == 2)
+		epur_str(argv[1]);
+	else
+		ft_putchar('\n');
+	return (0);
 }

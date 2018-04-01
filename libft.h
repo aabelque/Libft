@@ -6,15 +6,18 @@
 /*   By: aabelque <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/15 12:54:05 by aabelque          #+#    #+#             */
-/*   Updated: 2018/01/31 13:49:07 by aabelque         ###   ########.fr       */
+/*   Updated: 2018/04/01 18:14:49 by aabelque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
+# define BUFF_SIZE 1
+
 # include <unistd.h>
 # include <string.h>
+# include <fcntl.h>
 # include <stdlib.h>
 # include <wchar.h>
 
@@ -24,8 +27,12 @@ typedef struct		s_list
 	void			*content;
 	size_t			content_size;
 	struct s_list	*next;
+	int				fd;
 }					t_list;
 
+int					ft_atoi_base(const char *str, int str_base);
+void				epur_str(char *str);
+int					get_next_line(const int fd, char **line);
 void				ft_putwchar(wchar_t c);
 void				ft_pushback_list(t_list **alst, t_list *new);
 void				ft_add_endlist(t_list **list, char *str);
@@ -46,6 +53,7 @@ char				*ft_itoa(int n);
 char				**ft_strsplit(char const *s, char c);
 char				*ft_strtrim(char const *s);
 char				*ft_strjoin(char const *s1, char const *s2);
+char				*ft_strjoin2(char const *s1, char const *s2);
 char				*ft_strsub(char const *s, unsigned int start, size_t len);
 int					ft_strnequ(char const *s1, char const *s2, size_t n);
 int					ft_strequ(char const *s1, char const *s2);

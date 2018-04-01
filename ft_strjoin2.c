@@ -5,25 +5,32 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: aabelque <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/27 12:36:06 by aabelque          #+#    #+#             */
-/*   Updated: 2018/01/21 16:39:07 by aabelque         ###   ########.fr       */
+/*   Created: 2018/01/20 15:44:01 by aabelque          #+#    #+#             */
+/*   Updated: 2018/03/05 13:38:39 by aabelque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin2(char const *s1, char const *s2)
 {
-	char *str;
+	char	*str;
+	size_t	len1;
+	size_t	len2;
 
 	if (!s1 && !s2)
 		return (NULL);
-	if (!(str = ft_strnew(ft_strlen(s1) + ft_strlen(s2) + 1)))
+	if (s1 == NULL)
+		len1 = 0;
+	else
+		len1 = ft_strlen(s1);
+	if (s2 == NULL)
+		len2 = 0;
+	else
+		len2 = ft_strlen(s2);
+	if ((str = ft_strnew(len1 + ft_strlen(s2) + 1)) == NULL)
 		return (NULL);
-	if (str != '\0')
-	{
-		ft_strcpy(str, s1);
-		ft_strcat(str, s2);
-	}
+	(len1 == 0) ? str : ft_strcpy(str, s1);
+	(len2 == 0) ? str : ft_strcpy((str + len1), s2);
 	return (str);
 }
