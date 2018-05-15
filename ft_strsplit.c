@@ -6,7 +6,7 @@
 /*   By: aabelque <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/27 16:06:14 by aabelque          #+#    #+#             */
-/*   Updated: 2017/12/02 22:15:02 by aabelque         ###   ########.fr       */
+/*   Updated: 2018/04/20 13:12:12 by aabelque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ char			**ft_strsplit(char const *s, char c)
 	if (!s)
 		return (NULL);
 	count = ft_count_word(s, c);
-	if (!(tab = malloc(sizeof(*tab) * (count + 1))))
+	if (!(tab = malloc(sizeof(char *) * (count + 1))))
 		return (NULL);
 	i = -1;
 	while (++i < count && *s)
@@ -61,7 +61,7 @@ char			**ft_strsplit(char const *s, char c)
 		while (*s == c)
 			s++;
 		size = ft_size_word(s, c);
-		if (!(tab[i] = malloc((size + 1) * sizeof(**tab))))
+		if (!(tab[i] = malloc((size + 1) * sizeof(char))))
 			return (NULL);
 		ft_strncpy(tab[i], s, size);
 		tab[i][size] = '\0';

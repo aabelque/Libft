@@ -6,7 +6,7 @@
 /*   By: aabelque <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/15 12:54:05 by aabelque          #+#    #+#             */
-/*   Updated: 2018/04/01 18:14:49 by aabelque         ###   ########.fr       */
+/*   Updated: 2018/04/22 18:34:28 by aabelque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ typedef struct		s_list
 	struct s_list	*next;
 	int				fd;
 }					t_list;
+
 
 int					ft_atoi_base(const char *str, int str_base);
 void				epur_str(char *str);
