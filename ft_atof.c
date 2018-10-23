@@ -6,7 +6,7 @@
 /*   By: aabelque <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/23 10:41:14 by aabelque          #+#    #+#             */
-/*   Updated: 2018/10/23 13:22:41 by aabelque         ###   ########.fr       */
+/*   Updated: 2018/10/23 14:10:24 by aabelque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,6 @@ double				ft_atof(const char *str)
 		if (*str++ == '-')
 			sign = -1;
 	}
-	res = ft_get_dec(str);
+	res = ft_get_dec(str) * sign;
 	return (res);
 }
