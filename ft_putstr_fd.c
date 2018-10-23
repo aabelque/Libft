@@ -6,7 +6,7 @@
 /*   By: aabelque <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/15 17:42:51 by aabelque          #+#    #+#             */
-/*   Updated: 2017/11/15 19:44:48 by aabelque         ###   ########.fr       */
+/*   Updated: 2018/08/13 13:01:18 by aabelque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,10 @@
 
 void	ft_putstr_fd(char const *s, int fd)
 {
-	int	i;
-
-	i = 0;
-	while (s[i])
+	if (!s)
 	{
-		ft_putchar_fd(s[i], fd);
-		i++;
+		ft_putstr("No segfault bro!");
+		return ;
 	}
+	write(fd, (char const *)s, ft_strlen(s));
 }

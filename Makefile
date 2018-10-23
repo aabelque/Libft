@@ -6,7 +6,7 @@
 #    By: aabelque <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/22 12:03:18 by aabelque          #+#    #+#              #
-#    Updated: 2018/04/01 18:11:10 by aabelque         ###   ########.fr        #
+#    Updated: 2018/10/23 13:23:20 by aabelque         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,7 @@ SRC = ft_atoi.c ft_bzero.c ft_factorial.c ft_isalnum.c ft_isalpha.c \
 	  ft_swap.c ft_tolower.c ft_toupper.c get_msg.c ft_add_endlist.c\
 	  ft_nb_elemlist.c  ft_pushback_list.c ft_add_list.c epur_str.c\
 	  ft_rm_endlist.c ft_rm_frontlist.c ft_rmlist.c get_next_line.c\
-	  ft_atoi_base.c
+	  ft_atoi_base.c ft_atof.c
 
 HEADERS = -Ilibft.h
 
