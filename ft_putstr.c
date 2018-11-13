@@ -6,7 +6,7 @@
 /*   By: aabelque <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/15 13:35:42 by aabelque          #+#    #+#             */
-/*   Updated: 2018/08/13 12:56:53 by aabelque         ###   ########.fr       */
+/*   Updated: 2018/11/13 11:06:33 by aabelque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_putstr(char const *s)
 {
 	if (!s)
 	{
-		ft_putstr("No segfault bro!");
+		ft_putstr("No segfault bro!\n");
 		return ;
 	}
 	write(1, (char const *)s, ft_strlen(s));
