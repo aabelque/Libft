@@ -6,7 +6,7 @@
 #    By: aabelque <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/22 12:03:18 by aabelque          #+#    #+#              #
-#    Updated: 2018/10/23 13:23:20 by aabelque         ###   ########.fr        #
+#    Updated: 2019/02/06 15:12:56 by aabelque         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,7 +37,7 @@ HEADERS = -Ilibft.h
 
 OBJ = $(SRC:%.c=%.o)
 
-all: print $(NAME)
+all: $(NAME)
 
 print:
 	@echo "\033[32m[\c"
@@ -45,19 +45,19 @@ print:
 $(NAME): $(OBJ)
 	@ar rc $(NAME) $(OBJ)
 	@ranlib $(NAME)
-	@echo "\033[32m Built library]\033[0m"
+	@tput dl; tput el1; tput cub 100; echo "\033[33mBuilt library:\033[0m \033[32;1;4m$(notdir $@)\033[0m"
 
 %.o: %.c
 	@$(CC) $(CFLAGS) $(HEADERS) -o $@ -c $<
-	@echo "\033[33m>\c"
+	@tput dl; tput el1; tput cub 100; echo "\033[33mCreating object files: \033[32;1;4m$(notdir $@)\033[0m\c"
 
 clean:
 	@/bin/rm -f $(OBJ)
-	@echo "\033[32mCleaned up object files.\033[0m"
+	@echo "\033[33mRemoved files: \033[32;1;4mObject files\033[0m"
 
 fclean: clean
 	@/bin/rm -f $(NAME)
-	@echo "\033[32mCleaned up compiled files.\033[0m"
+	@echo "\033[33mRemoved library: \033[32;1;4m$(NAME)"
 
 re: fclean all
 
